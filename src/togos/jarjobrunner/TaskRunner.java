@@ -117,13 +117,15 @@ public class TaskRunner implements Runnable
 		TaskRunner tr = new TaskRunner(new BlobOracle("http://robert.nuke24.net:8080/uri-res/"));
 		tr.start();
 		
-		tr.setTaskDef(new TaskDef("urn:bitprint:XXXX", "togos.jarjobrunner.demotask.DemoTask", new Object[]{ "one" }));
+		String jarUrn = "urn:bitprint:ORHU37M7DAUIKUP7QWFPFHS5GUZ5HOJV.7RIPEWGOA7EDY2Q2WE6XQCVP3XHWDT2J5XJ5C2A";
+		
+		tr.setTaskDef(new TaskDef(jarUrn, "togos.jarjobrunner.demotask.DemoTask", new Object[]{ "one" }));
 		Thread.sleep(5000);
 		System.err.println("Switching the task!");
-		tr.setTaskDef(new TaskDef("urn:bitprint:XXXX", "togos.jarjobrunner.demotask.DemoTask", new Object[]{ "one" }));
+		tr.setTaskDef(new TaskDef(jarUrn, "togos.jarjobrunner.demotask.DemoTask", new Object[]{ "one" }));
 		Thread.sleep(5000);
 		System.err.println("Switching the task more!");
-		tr.setTaskDef(new TaskDef("urn:bitprint:XXXX", "togos.jarjobrunner.demotask.DemoTask", new Object[]{ "two" }));
+		tr.setTaskDef(new TaskDef(jarUrn, "togos.jarjobrunner.demotask.DemoTask", new Object[]{ "two" }));
 		Thread.sleep(5000);
 		tr.abort();
 	}
